@@ -1,0 +1,847 @@
+/* =================================
+   CSS Variables (Custom Properties)
+   - Centralized theme values for easy updates and consistency.
+   ================================= */
+:root {
+    --font-family-primary: 'Lato', sans-serif;
+    --color-text: #34495e; /* Dark Slate Blue */
+    --color-text-light: #7f8c8d; /* Slate Gray */
+    --color-text-subtle: #95a5a6; /* Light Slate Gray */
+    --color-primary: #00796b; /* Deep Teal */
+    --color-white: #ffffff;
+    --color-dark: #2c3e50; /* Dark Charcoal */
+    --color-border: #ecf0f1; /* Lighter border */
+    --hero-overlay-color: rgba(44, 62, 80, 0.7); /* Darker overlay */
+}
+
+/* =================================
+   Dark Mode Variables
+   ================================= */
+[data-theme="dark"] {
+    --color-text: #d1d5db; /* Softer light gray for text */
+    --color-text-light: #9ca3af; /* Medium gray for secondary text */
+    --color-text-subtle: #6b7280; /* Darker gray for subtle text */
+    --color-dark: #f9fafb; /* Off-white for elements that were dark */
+    --color-white: #111827; /* Very dark, near-black for main background */
+    --color-border: #374151; /* Lighter gray for borders */
+}
+[data-theme="dark"] .bg-light {
+    background-color: #1f2937 !important; /* A slightly lighter dark for alternating sections */
+}
+
+/* =================================
+   Global & Reset Styles
+   ================================= */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family-primary);
+    color: var(--color-text);
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Offset for the fixed header */
+}
+
+/* Inherit box-sizing for a more intuitive sizing model */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* A centered, max-width container for content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* =================================
+   Header
+   ================================= */
+.site-header {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-border);
+    position: fixed; /* Make the header sticky */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+/* Use flexbox to align logo and navigation */
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.logo strong {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--color-text-subtle);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* =================================
+   Dark Mode Toggle Button
+   ================================= */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--color-primary);
+    transform: scale(1.1) rotate(-15deg);
+}
+
+/* Hide on mobile nav open */
+.nav-toggle:checked ~ .dark-mode-toggle { display: none; }
+
+/* =================================
+   Mobile Navigation Toggle (Hamburger)
+   ================================= */
+.nav-toggle,
+.nav-toggle-label {
+    display: none; /* Hidden on desktop */
+    z-index: 101;
+}
+
+.nav-toggle {
+    opacity: 0;
+    position: absolute;
+}
+
+
+/* =================================
+   Main Navigation
+   ================================= */
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 35px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.main-nav a.active {
+    /* No special color for the active link, as requested. Hover is the only color change. */
+}
+
+.main-nav .cv-download i {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+/* =================================
+   Home Hero Section
+   ================================= */
+.home-hero {
+    height: 100vh;
+    background-image: url('./assets/images/background.avif');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+[data-theme="dark"] .home-hero {
+    /* Ensure hero text is always light, regardless of theme */
+    color: #ffffff;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--hero-overlay-color);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 2px solid var(--color-white);
+    padding: 15px 30px;
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+.btn {
+    -webkit-tap-highlight-color: transparent; /* Removes the default blue tap highlight on mobile */
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+/* =================================
+   Page Header (for sub-pages)
+   ================================= */
+.page-header {
+    padding: 120px 0 60px;
+    background-color: var(--color-dark);
+    text-align: center;
+    color: var(--color-white);
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0;
+}
+
+[data-theme="dark"] .page-header {
+    background-color: #1f2937; /* Use the alternating dark background */
+    color: #f9fafb; /* Use a light text color */
+}
+
+.content-section {
+    padding: 100px 0;
+}
+
+.content-section.bg-light {
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 60px;
+    color: var(--color-dark);
+}
+
+/* =================================
+   About Page - Team Section
+   ================================= */
+.about-intro {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    margin: 0 auto 15px auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* About Me Section */
+.about-me-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    align-items: center;
+    align-items: start;
+}
+
+.about-me-image img {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 50%;
+    border: 7px solid var(--color-white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin: 0 auto 30px auto;
+    display: block;
+}
+
+[data-theme="dark"] .about-me-image img {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    border-color: #1f2937; /* Match the dark bg-light color */
+    display: block;
+}
+
+.about-me-text .bio {
+    margin-bottom: 40px;
+}
+
+.about-me-text .skills-list {
+    margin-bottom: 40px;
+}
+
+/* Responsive layout for About Me section on tablets and up */
+@media (min-width: 768px) {
+    .about-me-content {
+        grid-template-columns: 1fr 2fr;
+        gap: 40px;
+    }
+    .about-me-image img { margin-bottom: 0; }
+}
+
+@media (min-width: 1024px) {
+    .about-me-content {
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+    }
+    .about-me-image img { margin-bottom: 0; }
+}
+
+.skills-list h3 {
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+.skills-list ul li {
+    background-color: var(--color-border);
+    color: var(--color-text-light);
+    padding: 8px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.education-entry {
+    margin-bottom: 20px;
+}
+
+.education-entry strong {
+    display: block;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.education-entry a {
+    color: var(--color-text-light);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 3px;
+}
+
+.education-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.coding-profiles {
+    margin-top: 40px;
+}
+
+.coding-profiles h3 {
+    margin-top: 0;
+    color: var(--color-dark);
+}
+
+.profile-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background-color: var(--color-border);
+    color: var(--color-text-light);
+    border-radius: 50%;
+    margin-right: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-links a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+}
+/* =================================
+   Services Page - Services Grid
+   ================================= */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-item {
+    text-align: center;
+    padding: 30px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.service-item:hover,
+.service-item:active {
+    transform: translateY(-5px);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.service-item .icon {
+    font-size: 48px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.service-item h3 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+/* Add hover effect for service items */
+.service-item:hover .icon,
+.service-item:active .icon,
+.service-item:hover h3,
+.service-item:active h3,
+.service-item:hover p,
+.service-item:active p {
+    color: var(--color-white);
+}
+
+.portfolio-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    aspect-ratio: 4 / 3; /* Enforce a consistent 4:3 aspect ratio */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Crop image to fit container without distortion */
+    transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover img,
+.portfolio-link:active .portfolio-item img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 121, 107, 0.85); /* Primary color with opacity */
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+[data-theme="dark"] .portfolio-overlay {
+    /* Ensure overlay text is always light */
+    color: #ffffff;
+}
+
+.portfolio-item:hover .portfolio-overlay,
+.portfolio-link:active .portfolio-overlay {
+    opacity: 1;
+}
+
+.overlay-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 22px;
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+}
+
+.overlay-content span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.portfolio-item:hover .overlay-content h3,
+.portfolio-link:active .overlay-content h3 {
+    transform: translateY(0);
+}
+
+/* =================================
+   Footer
+   ================================= */
+.main-footer {
+    background-color: var(--color-dark);
+    color: rgba(255, 255, 255, 0.7);
+    padding-top: 50px;
+    font-size: 14px;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+.footer-col h4 {
+    color: var(--color-white);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    line-height: 1.8;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-col ul a:hover {
+    color: var(--color-white);
+    padding-left: 5px;
+}
+
+[data-theme="dark"] .main-footer {
+    background-color: #111827; /* Keep footer background dark */
+    color: rgba(255, 255, 255, 0.7); /* Keep footer text light */
+}
+
+[data-theme="dark"] .footer-col h4 {
+    color: #f9fafb; /* Use the light text color from dark theme */
+}
+
+[data-theme="dark"] .footer-col ul a,
+[data-theme="dark"] .main-footer {
+    color: rgba(255, 255, 255, 0.7); /* Keep footer text light */
+}
+[data-theme="dark"] .footer-col ul a:hover { color: #ffffff; }
+
+.social-links a {
+    display: inline-block;
+    color: var(--color-text-light);
+    background-color: var(--color-border);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .social-links a {
+    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social-links a:hover { background-color: var(--color-primary); }
+
+.footer-bottom {
+    border-top: 1px solid var(--color-border);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* =================================
+   Contact Form
+   ================================= */
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px; /* Prevents fields from getting too squished before wrapping */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--color-text-light);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    border: 2px solid var(--color-dark);
+}
+
+[data-theme="dark"] .contact-form .btn {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.form-success-message {
+    display: none; /* Hidden by default */
+    background-color: #e0f2f1; /* Light Teal */
+    color: #004d40; /* Dark Teal */
+    border: 1px solid #b2dfdb; /* Medium Teal */
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+[data-theme="dark"] .form-success-message {
+    background-color: #004d40;
+    color: #e0f2f1;
+    border-color: #00796b;
+}
+
+
+/* =================================
+   Responsive Styles
+   ================================= */
+@media (max-width: 992px) {
+    /* --- Header & Mobile Navigation on smaller screens --- */
+    .site-header {
+        padding: 15px 0;
+    }
+
+    /* The mobile navigation starts as a hidden, full-screen overlay */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(20, 20, 20, 0.7); /* Even more transparent for better background visibility */
+        -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+        backdrop-filter: blur(10px); /* Frosted glass effect */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        z-index: 100;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav li {
+        margin: 20px 0;
+    }
+
+    .main-nav a {
+        color: var(--color-white);
+        font-size: 20px;
+    }
+
+    /* --- Hamburger Menu Icon Styling --- */
+    .nav-toggle-label {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+    }
+
+    /* The three lines of the hamburger icon */
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: var(--color-dark);
+        transition: all 0.3s ease;
+    }
+
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        content: '';
+    }
+
+    .nav-toggle-label span::before { top: -10px; }
+    .nav-toggle-label span { top: 10px; }
+    .nav-toggle-label span::after { top: 10px; }
+
+    /* --- Toggle Animation Logic (CSS-only) --- */
+    /* When the hidden checkbox is checked, show the navigation */
+    .nav-toggle:checked ~ .main-nav {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Animate the hamburger icon into an "X" */
+    .nav-toggle:checked ~ .nav-toggle-label span { background-color: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { transform: rotate(45deg); top: 10px; background-color: var(--color-white); }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { transform: rotate(-45deg); top: 10px; background-color: var(--color-white); }
+
+    /* Ensure hamburger icon is light in dark mode */
+    [data-theme="dark"] .nav-toggle-label span,
+    [data-theme="dark"] .nav-toggle-label span::before,
+    [data-theme="dark"] .nav-toggle-label span::after {
+        background-color: #f9fafb; /* Use light color for hamburger lines */
+    }
+
+    /* Ensure mobile nav text and close icon are always white, even in dark mode */
+    [data-theme="dark"] .main-nav a {
+        color: #ffffff;
+    }
+    [data-theme="dark"] .nav-toggle:checked ~ .nav-toggle-label span::before,
+    [data-theme="dark"] .nav-toggle:checked ~ .nav-toggle-label span::after {
+        background-color: #ffffff;
+    }
+
+    /* --- Hero Section Adjustments for Mobile --- */
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero p { font-size: 16px; }
+    .hero br { display: none; } /* Remove forced line breaks on mobile */
+
+    /* --- Form adjustments for mobile --- */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .content-section {
+        padding: 60px 0;
+    }
+}
+
+/* Upscale hero text on larger tablets and desktops */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 72px;
+    }
+}

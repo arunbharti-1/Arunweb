@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body data-page="home">
+
+    <!-- =================================
+    Site Header
+    ================================== -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <strong>ARUN</strong>
+                    <span>WEB DEVELOPER & DESIGNER</span>
+                </a>
+            </div>
+
+            <!-- 
+                Mobile Navigation Toggle (Hamburger Menu)
+                This is a CSS-only technique. The checkbox is hidden and toggled by the label.
+                The :checked pseudo-class is used in CSS to show/hide the mobile navigation.
+            -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <!-- Dark Mode Toggle -->
+            <button id="dark-mode-toggle" class="dark-mode-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <!-- Main Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#portfolio">My Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="./assets/Arun_Bharti_CV.pdf" class="cv-download" title="Download CV" download="Arun_Bharti_CV.pdf"><i class="fas fa-download"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =================================
+    Home Hero Section
+    ================================== -->
+    <section id="home" class="home-hero content-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Hello, I'm Arun</h1>
+            <p>A passionate web developer creating modern and responsive websites.</p>
+            <a href="#portfolio" class="btn btn-primary">View My Work</a>
+        </div>
+    </section>
+
+    <!-- =================================
+    Main Content
+    ================================== -->
+    <main>
+        <section id="portfolio" class="content-section">
+            <div class="container">
+                <h2 class="section-title">My Work</h2>
+                <div class="portfolio-grid">
+                    <a href="https://securedocs.redirectme.net/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                        <div class="portfolio-item">
+                            <img src="assets/images/secure.png" alt="SecureDocs Project">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>SecureDocs</h3>
+                                    <span>C++, Node.js, React, WebAssembly</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://video-call-chatapp.onrender.com/login" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                        <div class="portfolio-item">
+                            <img src="./assets/images/streamify.png" alt="Streamify Project">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Streamify</h3>
+                                    <span>React, Node.js, WebRTC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://arunbharti-1.github.io/Netflix/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                        <div class="portfolio-item">
+                            <img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=800&q=80" alt="Netflix Clone Project">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Netflix Clone</h3>
+                                    <span>HTML, CSS, Js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/arunbharti-1/Secure-Password-Manager" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                        <div class="portfolio-item">
+                            <img src="assets/images/password.png" alt="Secure Password Manager Project">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Secure Password Manager</h3>
+                                    <span>Js, IndexedDB, AES-256-GCM, PBKDF2</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="content-section bg-light">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-me-content">
+                    <div class="about-me-left">
+                        <div class="about-me-image">
+                            <img src="assets/images/Arun_g1.png" alt="A photo of Arun">
+                        </div>
+                        <div class="skills-list education-section">
+                            <h3>Education</h3>
+                            <div class="education-entry">
+                                <strong>M.Tech, Information Technology</strong>
+                                <span><a href="https://www.iiita.ac.in/" target="_blank" rel="noopener noreferrer">Indian Institute of Information Technology, Allahabad</a></span>
+                            </div>
+                            <div class="education-entry">
+                                <strong>B.Tech, Computer Science & Engineering</strong>
+                                <span><a href="http://www.mmmut.ac.in/" target="_blank" rel="noopener noreferrer">Madan Mohan Malaviya University of Technology, Gorakhpur</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-me-text">
+                        <div class="bio">
+                            <p class="about-intro">
+                                Hello! I'm Arun, a passionate and detail-oriented web developer based in Shahjahanpur, India. With a love for clean code and user-centric design, I specialize in building modern, responsive, and high-performance websites from the ground up.
+                            </p>
+                            <p>My journey into web development started with a fascination for how things work on the internet. This curiosity has grown into a career where I get to solve problems and bring ideas to life. I'm proficient in the entire development stack, from crafting beautiful user interfaces to building robust backend systems.</p>
+                        </div>
+                        <div class="skills-list">
+                            <h3>My Skills</h3>
+                            <ul>
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript (ES6+)</li>
+                                <li>React & Vue.js</li>
+                                <li>Node.js & Express</li>
+                                <li>SQL & NoSQL Databases</li>
+                                <li>UI/UX Design Principles</li>
+                            </ul>
+                        </div>
+                        <div class="coding-profiles">
+                            <h3>Developer Profiles</h3>
+                            <div class="profile-links">
+                                <a href="https://github.com/arunbharti-1" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://leetcode.com/u/arun_bharti1/" target="_blank" rel="noopener noreferrer" title="LeetCode"><strong>LC</strong></a>
+                                <a href="https://takeuforward.org/plus/profile/arunbharti_1" target="_blank" rel="noopener noreferrer" title="TUF"><strong>TUF</strong></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="content-section">
+            <div class="container">
+                <h2 class="section-title">What I Do</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-pencil-ruler"></i></div>
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting intuitive and beautiful user interfaces that provide a seamless user experience.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>Frontend Development</h3>
+                        <p>Bringing designs to life with clean, efficient, and responsive code using modern frameworks.</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon"><i class="fas fa-server"></i></div>
+                        <h3>Backend Development</h3>
+                        <p>Building robust and scalable server-side logic and APIs to power web applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="form-success-message">
+                    Thank you for your message! It has been saved.
+                </div>
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                    </div>
+                    <div class="form-group full-width"><label for="subject">Subject</label><input type="text" id="subject" name="subject" required></div>
+                    <div class="form-group full-width"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================================
+    Site Footer
+    ================================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <h4>ARUN</h4>
+                    <p>A passionate web developer creating modern and responsive websites.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Design</a></li>
+                        <li><a href="#services">Frontend Development</a></li>
+                        <li><a href="#services">Backend Development</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/arunbharti_1/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/arunbharti_1" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/arunbharti1" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Arun. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+
+</body>
+</html>
