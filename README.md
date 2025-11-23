@@ -28,6 +28,7 @@ This project was built using core web technologies:
 
 ## 📫 Connect with Me
 
-* **LinkedIn:** [Your LinkedIn URL Here]
+* **LinkedIn:** [https://www.linkedin.com/in/arunbharti1/](https://www.linkedin.com/in/arunbharti1/)
 * **GitHub:** [https://github.com/arunbharti-1](https://github.com/arunbharti-1)
-* **Email:** [your.email@example.com]
+* **Email:** [arun5272816@gmail.com]
+
